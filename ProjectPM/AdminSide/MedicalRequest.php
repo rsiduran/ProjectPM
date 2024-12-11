@@ -1,3 +1,6 @@
+<?php
+include '../Backend/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,50 +80,52 @@
 
     </section>
     <section class="home">
-      <h3 class="section-title">Registration Request</h3>
+      <h3 class="section-title">Medical Request</h3>
       <div class="body">
         <div class="table-container">
           <table class="minimalist-table">
             <thead>
               <tr>
-                <th>Full Name</th>
+                <th>Requester Name</th>
                 <th>Email</th>
-                <th>Address</th>
+                <th>Phone Number</th>
                 <th>Detainee's Full Name</th>
-                <th>Relationship</th>
-                <th>ID Picture</th>
-                <th>Actions</th>
+                <th>Assistance need</th>
+                <th>Additional Information</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>Data 6</td>
-                <td><a href="#">Approve</a> <a href="#">Reject</a></td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>Data 6</td>
-                <td><a href="#">Approve</a> <a href="#">Reject</a></td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>Data 6</td>
-                <td><a href="#">Approve</a> <a href="#">Reject</a></td>
-              </tr>
-            </tbody>
+            <?php
+            $query = "SELECT * FROM medical WHERE terms = '1'";
+            $result = mysqli_query($connect, $query);
+            
+            if (!$result) {
+                die("Query Failed: " . mysqli_error($connect));
+            }
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+
+                  // Display data for each row
+                  echo "<td>" . $row['fullname'] . "</td>";
+                  echo "<td>" . $row['email'] . "</td>";
+                  echo "<td>" . $row['phone_number'] . "</td>";
+                  echo "<td>" . $row['inmate_name'] . "</td>";         
+                  echo "<td>" . $row['assistance'] . "</td>";
+                  echo "<td>" . $row['additional_info'] . "</td>";
+                  // Action buttons for approve and reject
+                            echo '<td>
+                              <a href="../Backend/MedicalUpdate.php?regID=' . $row['id'] . '" class="approve-btn">Done</a> 
+                          </td>';
+                  echo "</tr>";
+              }
+          } else {
+              echo "<tr><td colspan='7' class='text-center'>No Records Found</td></tr>";
+          }
+
+            ?>
+          </tbody>
           </table>
         </div>
       </div>
