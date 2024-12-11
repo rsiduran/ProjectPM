@@ -76,3 +76,26 @@
     border-color: #bd2130;
   }
   
+  .approve-btn {
+    color: white;
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.approve-btn:hover {
+    background-color: darkgreen;
+}
+
+.reject-btn {
+    color: white;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.reject-btn:hover {
+    background-color: darkred;
+}

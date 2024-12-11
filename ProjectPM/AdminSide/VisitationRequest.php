@@ -63,7 +63,7 @@
           <span class="tooltip">Detainee Update</span>
         </li>
         <li>
-          <a href="../index.php">
+          <a href="../Backend/logout.php">
             <i class='bx bx-log-out'></i>
             <span class="title">Logout</span>
           </a>
