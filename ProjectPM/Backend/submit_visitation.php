@@ -64,18 +64,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO visitation (visitor_name, email, phone_number, id_type, id_number, inmate_name, inmate_id, relationship, visit_reason, terms_accepted) 
               VALUES ('$visitorName', '$email', '$phoneNumber', '$idType', '$idNumber', '$inmateName', '$inmateID', '$relationship', '$visitReason', '$termsAccepted')";
 
-    if (mysqli_query($connect, $query)) {
-        $_SESSION['success'] = "Visitation request submitted successfully!";
-        header("Location: ../ClientSide/dashboard.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Submission failed: " . mysqli_error($connect);
-        header("Location: ../ClientSide/dashboard.php");
-        exit();
-    }
-} else {
-    $_SESSION['error'] = "Invalid request method.";
-    header("Location: ../ClientSide/dashboard.php");
+if (mysqli_query($connect, $query)) {
+    echo "<script>alert('Form submitted successfully!'); window.location.href='../ClientSide/dashboard.php';</script>";
     exit();
+} else {
+    echo "<script>alert('Submission failed: " . mysqli_error($connect) . "'); window.location.href='../ClientSide/dashboard.php';</script>";
+    exit();
+}
+} else {
+echo "<script>alert('Invalid request method.'); window.location.href='../ClientSide/dashboard.php';</script>";
+exit();
 }
 ?>

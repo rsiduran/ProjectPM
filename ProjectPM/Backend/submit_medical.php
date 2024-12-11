@@ -33,18 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO medical (fullname, email, phone_number, home_address, inmate_name, inmate_age, medical_condition, medical_history, assistance, additional_info, terms) 
               VALUES ('$fullname', '$email', '$phoneNumber', '$homeAddress', '$inmateName', '$inmateAge', '$medicalCondition', '$medicalHistory', '$assistanceNeeded', '$additionalInfo', '$termsAccepted')";
 
-    if (mysqli_query($connect, $query)) {
-        $_SESSION['success'] = "Medical request submitted successfully!";
-        header("Location: ../ClientSide/MedicalRequest.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Submission failed: " . mysqli_error($connect);
-        header("Location: ../ClientSide/MedicalRequest.php");
-        exit();
-    }
-} else {
-    $_SESSION['error'] = "Invalid request method.";
-    header("Location: ../ClientSide/MedicalRequest.php");
+if (mysqli_query($connect, $query)) {
+    echo "<script>alert('Form submitted successfully!'); window.location.href='../ClientSide/MedicalRequest.php';</script>";
     exit();
+} else {
+    echo "<script>alert('Submission failed: " . mysqli_error($connect) . "'); window.location.href='../ClientSide/MedicalRequest.php';</script>";
+    exit();
+}
+} else {
+echo "<script>alert('Invalid request method.'); window.location.href='../ClientSide/MedicalRequest.php';</script>";
+exit();
 }
 ?>
