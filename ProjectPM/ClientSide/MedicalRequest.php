@@ -61,7 +61,7 @@
       <h3 class="section-title">Medical Assistance Request</h3>
       <div class="body">
         <div class="form-container">
-          <form action="/submit-medical-assistance" method="POST">
+          <form action="../Backend/submit_medical.php" method="POST">
             <!-- Personal Details -->
             <h3>Personal Details</h3>
             <div class="form-group mb-3">
@@ -71,6 +71,8 @@
                 id="fullName"
                 name="fullName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
                 required
               />
             </div>
@@ -91,6 +93,7 @@
                 id="phoneNumber"
                 name="phoneNumber"
                 class="form-control"
+                pattern="\d{11}"
                 required
               />
             </div>
@@ -114,6 +117,8 @@
                 id="patientName"
                 name="patientName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
                 required
               />
             </div>
@@ -124,6 +129,9 @@
                 id="patientAge"
                 name="patientAge"
                 class="form-control"
+                min="0"
+                max="999"
+                pattern="^\d{1,4}$"
                 required
               />
             </div>

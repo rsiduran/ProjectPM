@@ -61,7 +61,7 @@
       <h3 class="section-title">Submit Appeal</h3>
       <div class="body">
         <div class="form-container">
-          <form action="/submit-appeal" method="POST">
+          <form action="../Backend/submit_appeal.php" method="POST">
             <!-- Personal Details -->
             <h3>Personal Details</h3>
             <div class="form-group mb-3">
@@ -71,6 +71,8 @@
                 id="fullName"
                 name="fullName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
                 required
               />
             </div>
@@ -91,6 +93,7 @@
                 id="phoneNumber"
                 name="phoneNumber"
                 class="form-control"
+                pattern="\d{11}"
                 required
               />
             </div>
@@ -131,6 +134,9 @@
                 id="inmateName"
                 name="inmateName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
+
               />
             </div>
             <div class="form-group mb-3">
@@ -155,6 +161,7 @@
                 id="supportingDocuments"
                 name="supportingDocuments"
                 class="form-control"
+                accept="image/*"
               />
             </div>
             <div class="form-group mb-3">

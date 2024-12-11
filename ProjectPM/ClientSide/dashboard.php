@@ -61,7 +61,7 @@
       <h3 class="section-title">Visitation Request</h3>
       <div class="body">
         <div class="form-container">
-          <form action="/submit-visitation" method="POST">
+          <form action="../Backend/submit_visitation.php" method="POST" enctype="multipart/form-data">
             <!-- Visitor Details -->
             <h3>Visitor Details</h3>
             <div class="form-group mb-3">
@@ -71,6 +71,8 @@
                 id="visitorName"
                 name="visitorName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
                 required
               />
             </div>
@@ -91,6 +93,7 @@
                 id="phoneNumber"
                 name="phoneNumber"
                 class="form-control"
+                pattern="\d{11}"
                 required
               />
             </div>
@@ -122,17 +125,19 @@
                 id="inmateName"
                 name="inmateName"
                 class="form-control"
+                pattern="[A-Za-z\s]+"
+                title="Only letters and spaces are allowed"
                 required
               />
             </div>
             <div class="form-group mb-3">
-              <label for="inmateID">Inmate ID</label>
+            <label for="inmateID">Inmate ID (Optional)</label>
               <input
-                type="text"
+                type="file"
                 id="inmateID"
                 name="inmateID"
                 class="form-control"
-              />
+                accept="image/*"/>
             </div>
 
             <!-- Visit Details -->
@@ -168,7 +173,7 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit" class="btn btn-primary">Submit Request</button>
+            <button type="submit" class="btn btn-primary" name="submit_btn">Submit Request</button>
           </form>
         </div>
       </div>
