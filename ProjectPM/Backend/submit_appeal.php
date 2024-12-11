@@ -65,18 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO appeal (fullname, email, phone_number, address, appeal_type, inmate_name, appeal_description, supporting_docs, previous_comms, consent, terms) 
               VALUES ('$fullname', '$email', '$phoneNumber', '$address', '$appealType', '$inmateName', '$appealDescription','$supportingDocs',  '$previousCommunication', '$consent', '$termsAccepted')";
 
-    if (mysqli_query($connect, $query)) {
-        $_SESSION['success'] = "Visitation request submitted successfully!";
-        header("Location: ../ClientSide/SubmitAppeal.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Submission failed: " . mysqli_error($connect);
-        header("Location: ../ClientSide/SubmitAppeal.php");
-        exit();
-    }
-} else {
-    $_SESSION['error'] = "Invalid request method.";
-    header("Location: ../ClientSide/SubmitAppeal.php");
+if (mysqli_query($connect, $query)) {
+    echo "<script>alert('Form submitted successfully!'); window.location.href='../ClientSide/SubmitAppeal.php';</script>";
     exit();
+} else {
+    echo "<script>alert('Submission failed: " . mysqli_error($connect) . "'); window.location.href='../ClientSide/SubmitAppeal.php';</script>";
+    exit();
+}
+} else {
+echo "<script>alert('Invalid request method.'); window.location.href='../ClientSide/SubmitAppeal.php';</script>";
+exit();
 }
 ?>

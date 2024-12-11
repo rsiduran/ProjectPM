@@ -72,18 +72,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO virtual (visitor_name, email, phone_number, id_type, id_number, inmate_name, inmate_id, number_call, relationship, reason, terms) 
               VALUES ('$visitorName', '$email', '$phoneNumber', '$idType', '$idNumber', '$inmateName', '$inmateID', '$callType', '$relationship', '$visitReason', '$termsAccepted')";
 
-    if (mysqli_query($connect, $query)) {
-        $_SESSION['success'] = "Visitation request submitted successfully!";
-        header("Location: ../ClientSide/VirtualRequest.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Submission failed: " . mysqli_error($connect);
-        header("Location: ../ClientSide/VirtualRequest.php");
-        exit();
-    }
-} else {
-    $_SESSION['error'] = "Invalid request method.";
-    header("Location: ../ClientSide/VirtualRequest.php");
+if (mysqli_query($connect, $query)) {
+    echo "<script>alert('Form submitted successfully!'); window.location.href='../ClientSide/VirtualRequest.php';</script>";
     exit();
+} else {
+    echo "<script>alert('Submission failed: " . mysqli_error($connect) . "'); window.location.href='../ClientSide/VirtualRequest.php';</script>";
+    exit();
+}
+} else {
+echo "<script>alert('Invalid request method.'); window.location.href='../ClientSide/VirtualRequest.php';</script>";
+exit();
 }
 ?>
