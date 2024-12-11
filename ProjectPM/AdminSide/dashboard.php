@@ -119,9 +119,13 @@ if (!$result) {
                                     <img src='../Backend/img/" . $row['IDPicture'] . "' alt='ID Picture' style='width: auto; height: 40px;'>
                                 </a>
                               </td>";
-                              echo '<td>
-                              <a href="../Backend/registerApproval.php?regID=' . $row['RegistrationID'] . '" class="approve-btn">Approve</a> 
-                              <a href="../Backend/registerRejection.php?regID=' . $row['RegistrationID'] . '" class="reject-btn">Reject</a>
+                        echo '<td>
+                              <a href="#" 
+                                onclick="if(confirm(\'Are you sure you want to approve?\')) { window.location.href=\'../Backend/registerApproval.php?regID=' . $row['RegistrationID'] . '\'; }" 
+                                class="approve-btn">Approve</a> 
+                              <a href="#" 
+                                onclick="if(confirm(\'Are you sure you want to reject?\')) { window.location.href=\'../Backend/registerRejection.php?regID=' . $row['RegistrationID'] . '\'; }" 
+                                class="reject-btn">Reject</a>
                             </td>';
                         echo "</tr>";
                     }

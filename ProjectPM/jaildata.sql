@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2024 at 02:28 PM
+-- Generation Time: Dec 11, 2024 at 06:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,54 @@ CREATE TABLE `medical` (
   `terms` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `medical`
+--
+
+INSERT INTO `medical` (`id`, `fullname`, `email`, `phone_number`, `home_address`, `inmate_name`, `inmate_age`, `medical_condition`, `medical_history`, `assistance`, `additional_info`, `terms`) VALUES
+(2, 'Julio Smith', 'smith23@gmail.com', '09787541212', 'Caloocan City', 'Robert Smith', 24, 'Weak Heart', 'Hyperventilation', 'Hospitalization Assistance', '', 2),
+(3, 'Mia Rose', 'rosemia12@gmail.com', '09565682752', 'Caloocan City', 'Clark Rose', 36, 'Asthma', 'Asthma', 'Medical Supplies', 'His inhaler is a must', 1),
+(4, 'Johnson Taylors', 'taylorjohn298@gmail.com', '09342123412', 'Makati City', 'John Taylors', 50, 'Kidney Stone', 'Kidney Failure', 'Emergency Surgery', '', 2),
+(5, 'Ivan Roberts', 'robertsivan@gmail.com', '09756734623', 'Caloocan City', 'Ian Roberts', 20, 'Ulcer', 'None', 'Medical Supplies', '', 1),
+(6, 'Rina Williams', 'ria75@gmail.com', '09547654343', 'Caloocan City', 'Ray Williams', 46, 'Gastritis', 'None', 'Hospitalization Assistance', '', 1),
+(7, 'Rina Williams', 'ria75@gmail.com', '09547654343', 'Caloocan City', 'Ray Williams', 46, 'Gastritis', 'None', 'Hospitalization Assistance', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `record`
+--
+
+CREATE TABLE `record` (
+  `id` int(30) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `dateofcapture` date NOT NULL,
+  `dateohbirth` date NOT NULL,
+  `nationality` varchar(255) NOT NULL,
+  `education` varchar(255) NOT NULL,
+  `religion` varchar(255) NOT NULL,
+  `sex` enum('Male','Female') NOT NULL,
+  `physicalcondition` enum('Good','Not Good') NOT NULL,
+  `placeofcapture` varchar(255) NOT NULL,
+  `placeofbirth` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `father` varchar(255) NOT NULL,
+  `mother` varchar(255) NOT NULL,
+  `photofront` varchar(255) NOT NULL,
+  `photoleft` varchar(255) NOT NULL,
+  `preparedby` varchar(255) NOT NULL,
+  `dateofprepared` date NOT NULL,
+  `placeofprison` varchar(255) NOT NULL,
+  `status` enum('Detained','Released') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `record`
+--
+
+INSERT INTO `record` (`id`, `name`, `dateofcapture`, `dateohbirth`, `nationality`, `education`, `religion`, `sex`, `physicalcondition`, `placeofcapture`, `placeofbirth`, `address`, `father`, `mother`, `photofront`, `photoleft`, `preparedby`, `dateofprepared`, `placeofprison`, `status`) VALUES
+(10, 'asdas', '2024-12-11', '2024-12-04', 'asdasd', 'asdsad', 'asdsad', 'Male', 'Good', 'asdasdasdas', '0000-00-00', 'dasdad', 'adadad', 'adadada', 'img1_67598091880b40.47756694.png', 'img2_67598091881077.25793706.jpg', 'asdsadasdas', '2024-12-04', 'asdasdasdasd', 'Detained');
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +134,8 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`RegistrationID`, `FullName`, `Email`, `Address`, `DetaineesFullName`, `Relationship`, `IDPicture`, `RegistrationStatus`, `Password`) VALUES
-(10, 'asdasd', 'abc@gmail.com', 'asdasd', 'asdasd', 'parent', '6758476d6d3e3.jpg', 'Approved', '111111');
+(10, 'asdasd', 'abc@gmail.com', 'asdasd', 'asdasd', 'parent', '6758476d6d3e3.jpg', 'Approved', '123123'),
+(11, 'Alexandra', 'Alexandra@gmail.com', 'Alex Street May Pajo', 'Alejando', 'parent', '6759cb899952d.png', 'Pending', '506694');
 
 -- --------------------------------------------------------
 
@@ -114,7 +163,8 @@ CREATE TABLE `virtual` (
 --
 
 INSERT INTO `virtual` (`id`, `visitor_name`, `email`, `phone_number`, `id_type`, `id_number`, `inmate_name`, `inmate_id`, `number_call`, `relationship`, `reason`, `terms`) VALUES
-(2, 'Jane Doe', 'JaneDoe@gmail.com', '09123456789', 'National ID', '232132144', 'John Does', 'img/uploadsStickers.jpg', '09123746278', 'Parent', 'Worried', 1);
+(2, 'Jane Doe', 'JaneDoe@gmail.com', '09123456789', 'National ID', '232132144', 'John Does', 'img/uploadsStickers.jpg', '09123746278', 'Parent', 'Worried', 2),
+(3, 'Hiiro Suzumi', 'suzu_hiiro@gmail.com', '09876767231', 'Driver\'s License', 'NO378978956', 'Hiro Suzumi', 'img/uploadsPO-PASS-Card-16-17-Naomi-McDermott.png', '09878765546', 'Brother', 'Checking his condition', 1);
 
 -- --------------------------------------------------------
 
@@ -133,7 +183,7 @@ CREATE TABLE `visitation` (
   `inmate_id` varchar(255) NOT NULL,
   `relationship` varchar(255) NOT NULL,
   `visit_reason` text NOT NULL,
-  `terms_accepted` tinyint(1) NOT NULL
+  `terms_accepted` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -141,7 +191,8 @@ CREATE TABLE `visitation` (
 --
 
 INSERT INTO `visitation` (`id`, `visitor_name`, `email`, `phone_number`, `id_type`, `id_number`, `inmate_name`, `inmate_id`, `relationship`, `visit_reason`, `terms_accepted`) VALUES
-(2, 'John Doe', 'Email@gmail.com', '09123456789', 'Driver\'s License', '23412334451', 'John', 'img/uploadslogo.png', 'Parent', 'Nawawala', 1);
+(2, 'John Doe', 'Email@gmail.com', '09123456789', 'Driver\'s License', '23412334451', 'John', 'img/uploadslogo.png', 'Parent', 'Nawawala', '2'),
+(3, 'Percy Lockser', 'Percylockser@gmail.com', '09128412312', 'Driver\'s License', '34266783332', 'Homura Lockser', 'img/uploadsPO-PASS-Card-16-17-Naomi-McDermott.png', 'Parent', 'Worried', '1');
 
 --
 -- Indexes for dumped tables
@@ -157,6 +208,12 @@ ALTER TABLE `appeal`
 -- Indexes for table `medical`
 --
 ALTER TABLE `medical`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `record`
+--
+ALTER TABLE `record`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -192,25 +249,31 @@ ALTER TABLE `appeal`
 -- AUTO_INCREMENT for table `medical`
 --
 ALTER TABLE `medical`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `record`
+--
+ALTER TABLE `record`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `RegistrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `RegistrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `virtual`
 --
 ALTER TABLE `virtual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `visitation`
 --
 ALTER TABLE `visitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

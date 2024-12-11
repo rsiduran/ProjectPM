@@ -127,9 +127,12 @@ if (!$result) {
                     echo '<td>
                              Approved
                             </td>';
-                            echo '<td>
-                              <a href="../Backend/VisitLog.php?regID=' . $row['id'] . '" class="approve-btn">Done</a> 
-                          </td>';
+                    echo '<td>
+                      <a href="#" 
+                        onclick="if(confirm(\'Are you sure you want to mark this visit as done?\')) { window.location.href=\'../Backend/VisitLog.php?regID=' . $row['id'] . '\'; }" 
+                        class="approve-btn">Done</a> 
+                    </td>';
+
                     echo "</tr>";
                 }
             } else {
@@ -187,9 +190,12 @@ if (!$result) {
                   echo '<td>
                               Approved
                             </td>';
-                            echo '<td>
-                              <a href="../Backend/VirtualLog.php?regID=' . $row['id'] . '" class="approve-btn">Done</a> 
-                          </td>';
+                  echo '<td>
+                        <a href="#" 
+                          onclick="if(confirm(\'Are you sure you want to mark this as done?\')) { window.location.href=\'../Backend/VirtualLog.php?regID=' . $row['id'] . '\'; }" 
+                          >Done</a> 
+                      </td>';
+
                   echo "</tr>";
               }
           } else {

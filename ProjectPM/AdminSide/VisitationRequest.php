@@ -124,9 +124,12 @@ if (!$result) {
                     echo "<td>" . $row['visit_reason'] . "</td>";
                     // Action buttons for approve and reject
                     echo '<td>
-                              <a href="../Backend/VisitationApproval.php?regID=' . $row['id'] . '" class="approve-btn">Approve</a> 
-                              <a href="../Backend/VisitationRejection.php?regID=' . $row['id'] . '" class="reject-btn">Reject</a>
-                            </td>';
+                    <a href="#" 
+                       onclick="if(confirm(\'Are you sure you want to approve this visitation?\')) { window.location.href=\'../Backend/VisitationApproval.php?regID=' . $row['id'] . '\'; }">Approve</a> 
+                    <a href="#" 
+                       onclick="if(confirm(\'Are you sure you want to reject this visitation?\')) { window.location.href=\'../Backend/VisitationRejection.php?regID=' . $row['id'] . '\'; }">Reject</a>
+                  </td>';
+            
                     echo "</tr>";
                 }
             } else {
@@ -181,9 +184,11 @@ if (!$result) {
                   echo "<td>" . $row['reason'] . "</td>";
                   // Action buttons for approve and reject
                   echo '<td>
-                              <a href="../Backend/VirtualApproval.php?regID=' . $row['id'] . '" class="approve-btn">Approve</a> 
-                              <a href="../Backend/VirtualRejection.php?regID=' . $row['id'] . '" class="reject-btn">Reject</a>
-                            </td>';
+                    <a href="#" 
+                      onclick="if(confirm(\'Are you sure you want to approve this virtual visitation?\')) { window.location.href=\'../Backend/VirtualApproval.php?regID=' . $row['id'] . '\'; }">Approve</a> 
+                    <a href="#" 
+                      onclick="if(confirm(\'Are you sure you want to reject this virtual visitation?\')) { window.location.href=\'../Backend/VirtualRejection.php?regID=' . $row['id'] . '\'; }">Reject</a>
+                  </td>';
                   echo "</tr>";
               }
           } else {

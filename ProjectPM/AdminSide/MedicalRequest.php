@@ -115,9 +115,12 @@ include '../Backend/config.php';
                   echo "<td>" . $row['assistance'] . "</td>";
                   echo "<td>" . $row['additional_info'] . "</td>";
                   // Action buttons for approve and reject
-                            echo '<td>
-                              <a href="../Backend/MedicalUpdate.php?regID=' . $row['id'] . '" class="approve-btn">Done</a> 
-                          </td>';
+                  echo '<td>
+                  <a href="#" 
+                     onclick="if(confirm(\'Are you sure you want to mark this as done?\')) { window.location.href=\'../Backend/MedicalUpdate.php?regID=' . $row['id'] . '\'; }" 
+                     class="approve-btn">Done</a> 
+                </td>';
+          
                   echo "</tr>";
               }
           } else {
