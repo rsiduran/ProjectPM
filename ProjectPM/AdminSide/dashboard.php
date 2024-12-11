@@ -19,7 +19,6 @@ if (!$result) {
   <title>dashboard | jail jail</title>
   <link rel="stylesheet" href="../assets/style/sidebar.css" />
   <link rel="stylesheet" href="../assets/style/table.css" />
-
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $supportingDocs = null;
     if (!empty($_FILES["supportingDocuments"]["name"])) {
-        $targetDir = "../assets/uploads";
+        $targetDir = "img/uploads";
         $targetFile = $targetDir . basename($_FILES["supportingDocuments"]["name"]);
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     

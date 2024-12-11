@@ -1,0 +1,101 @@
+.section-title {
+    padding: 30px;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .table-container {
+    width: 90%;  
+    overflow-x: auto;
+    height: 38vh;
+    overflow-y: auto;
+  }
+  
+  .minimalist-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .minimalist-table th,
+  .minimalist-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #000;
+  }
+  
+  .minimalist-table th {
+    font-weight: bold;
+  }
+  
+  .minimalist-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style for the links to make them appear as buttons */
+.minimalist-table a {
+    text-decoration: none;  /* Remove underline */
+    padding: 8px 12px;      /* Add padding for button look */
+    margin: 0 5px;          /* Add space between buttons */
+    border-radius: 5px;     /* Round corners */
+    display: inline-block;  /* Ensure they stay in the same line */
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Approve Button */
+  .minimalist-table a[href='#']:first-child {
+    background-color: #28a745;  /* Green for approve */
+    color: white;
+    border: 1px solid #28a745;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .minimalist-table a[href='#']:first-child:hover {
+    background-color: #218838;  /* Darker green when hovered */
+    border-color: #1e7e34;
+  }
+  
+  /* Reject Button */
+  .minimalist-table a[href='#']:last-child {
+    background-color: #dc3545;  /* Red for reject */
+    color: white;
+    border: 1px solid #dc3545;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .minimalist-table a[href='#']:last-child:hover {
+    background-color: #c82333;  /* Darker red when hovered */
+    border-color: #bd2130;
+  }
+  
+  .approve-btn {
+    color: white;
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.approve-btn:hover {
+    background-color: darkgreen;
+}
+
+.reject-btn {
+    color: white;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.reject-btn:hover {
+    background-color: darkred;
+}

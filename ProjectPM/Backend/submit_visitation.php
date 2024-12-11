@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $inmateID = null;
     if (!empty($_FILES["inmateID"]["name"])) {
-        $targetDir = "../assets/uploads";
+        $targetDir = "img/uploads";
         $targetFile = $targetDir . basename($_FILES["inmateID"]["name"]);
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     
