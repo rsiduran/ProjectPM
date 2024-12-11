@@ -1,0 +1,161 @@
+.section-title {
+    padding: 30px;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .table-container {
+    width: 90%;  
+    overflow-x: auto;
+    height: 83vh;
+    overflow-y: auto;
+  }
+  
+  .minimalist-tables {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .minimalist-tables th,
+  .minimalist-tables td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #000;
+  }
+  
+  .minimalist-tables th {
+    font-weight: bold;
+  }
+  
+  .minimalist-tables tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style for the links to make them appear as buttons */
+  .minimalist-tables a {
+      text-decoration: none;  /* Remove underline */
+      padding: 8px 12px;      /* Add padding for button look */
+      margin: 0 5px;          /* Add space between buttons */
+      border-radius: 5px;     /* Round corners */
+      display: inline-block;  /* Ensure they stay in the same line */
+      font-weight: bold;
+      text-align: center;
+    }
+    .left-button {
+        position: relative;
+        left: 0;
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-bottom: 20px;
+        margin-left: 70px;
+      }
+      .left-button:hover {
+        background-color: darkblue;
+      }
+       /* Modal styles */
+       .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .modal-header {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .modal-close {
+            float: right;
+            cursor: pointer;
+            color: red;
+        }
+        .modal-body form {
+            display: grid;
+            gap: 10px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group label {
+            width: 40%;
+        }
+        .form-group input {
+            width: 55%;
+        }
+        .submit-btn {
+          margin-top: 5px;
+            background-color: #4CAF50; /* Green background */
+            color: white;              /* White text */
+            border: none;              /* No border */
+            padding: 5px 15px;        /* Padding around the text */
+            text-align: center;        /* Center the text */
+            text-decoration: none;     /* Remove underline */
+            display: inline-block;     /* Allow it to be inline */
+            font-size: 16px;           /* Set font size */  
+            cursor: pointer;          /* Change the cursor to pointer on hover */
+            border-radius: 8px;        /* Rounded corners */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transition for hover effects */
+        }
+
+        /* Hover effect */
+        .submit-btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05);     /* Slightly enlarge the button on hover */
+        }
+
+        /* Focus effect */
+        .submit-btn:focus {
+            outline: none;              /* Remove focus outline */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add shadow when focused */
+        }
+        td a i {
+          font-size: 18px;  /* Increase size */
+          color: black;      /* Change color */
+          margin-right: 3px; /* Space between icons */
+          text-align: center;
+          display: inline-block;
+          
+        }
+        td a:hover i {
+          color: #007bff;  /* Change color when hovered */
+        }
+
+        input {
+          padding: 4px 5px;
+          border-radius: 5px;
+          border: 1px solid gray;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+        select {
+          width: 55%;
+          padding: 4px 5px;
+          border-radius: 5px;
+          border: 1px solid gray;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }

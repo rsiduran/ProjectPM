@@ -1,7 +1,7 @@
 <?php
 include '../Backend/config.php';
 
-$query = "SELECT * FROM Visitation";
+$query = "SELECT * FROM Visitation WHERE terms_accepted = '1'";
 $result = mysqli_query($connect, $query);
 
 if (!$result) {
@@ -123,10 +123,10 @@ if (!$result) {
                     echo "<td>" . $row['relationship'] . "</td>";
                     echo "<td>" . $row['visit_reason'] . "</td>";
                     // Action buttons for approve and reject
-                    echo "<td>
-                            <a href='#' class='approve-btn'>Approve</a>
-                            <a href='#' class='reject-btn'>Reject</a>
-                          </td>";
+                    echo '<td>
+                              <a href="../Backend/VisitationApproval.php?regID=' . $row['id'] . '" class="approve-btn">Approve</a> 
+                              <a href="../Backend/VisitationRejection.php?regID=' . $row['id'] . '" class="reject-btn">Reject</a>
+                            </td>';
                     echo "</tr>";
                 }
             } else {
@@ -155,7 +155,7 @@ if (!$result) {
           </thead>
           <tbody>
             <?php
-            $query = "SELECT * FROM Virtual";
+            $query = "SELECT * FROM Virtual WHERE terms = '1'";
             $result = mysqli_query($connect, $query);
             
             if (!$result) {
@@ -180,10 +180,10 @@ if (!$result) {
                   echo "<td>" . $row['relationship'] . "</td>";
                   echo "<td>" . $row['reason'] . "</td>";
                   // Action buttons for approve and reject
-                  echo "<td>
-                          <a href='#' class='approve-btn'>Approve</a>
-                          <a href='#' class='reject-btn'>Reject</a>
-                        </td>";
+                  echo '<td>
+                              <a href="../Backend/VirtualApproval.php?regID=' . $row['id'] . '" class="approve-btn">Approve</a> 
+                              <a href="../Backend/VirtualRejection.php?regID=' . $row['id'] . '" class="reject-btn">Reject</a>
+                            </td>';
                   echo "</tr>";
               }
           } else {

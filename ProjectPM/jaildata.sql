@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2024 at 08:35 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 11, 2024 at 02:28 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -86,7 +86,7 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`RegistrationID`, `FullName`, `Email`, `Address`, `DetaineesFullName`, `Relationship`, `IDPicture`, `RegistrationStatus`, `Password`) VALUES
-(10, 'asdasd', 'sada@gmail.com', 'asdasd', 'asdasd', 'parent', '6758476d6d3e3.jpg', 'Pending', '25634201');
+(10, 'asdasd', 'abc@gmail.com', 'asdasd', 'asdasd', 'parent', '6758476d6d3e3.jpg', 'Approved', '111111');
 
 -- --------------------------------------------------------
 
@@ -109,6 +109,13 @@ CREATE TABLE `virtual` (
   `terms` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `virtual`
+--
+
+INSERT INTO `virtual` (`id`, `visitor_name`, `email`, `phone_number`, `id_type`, `id_number`, `inmate_name`, `inmate_id`, `number_call`, `relationship`, `reason`, `terms`) VALUES
+(2, 'Jane Doe', 'JaneDoe@gmail.com', '09123456789', 'National ID', '232132144', 'John Does', 'img/uploadsStickers.jpg', '09123746278', 'Parent', 'Worried', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +135,13 @@ CREATE TABLE `visitation` (
   `visit_reason` text NOT NULL,
   `terms_accepted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `visitation`
+--
+
+INSERT INTO `visitation` (`id`, `visitor_name`, `email`, `phone_number`, `id_type`, `id_number`, `inmate_name`, `inmate_id`, `relationship`, `visit_reason`, `terms_accepted`) VALUES
+(2, 'John Doe', 'Email@gmail.com', '09123456789', 'Driver\'s License', '23412334451', 'John', 'img/uploadslogo.png', 'Parent', 'Nawawala', 1);
 
 --
 -- Indexes for dumped tables
@@ -190,13 +204,13 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `virtual`
 --
 ALTER TABLE `virtual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visitation`
 --
 ALTER TABLE `visitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
